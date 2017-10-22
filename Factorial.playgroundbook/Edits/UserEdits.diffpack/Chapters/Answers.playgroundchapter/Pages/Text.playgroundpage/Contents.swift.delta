@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Diff</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>
+//Created by:Younes
+//Created on:Oct 2017
+//Created for: ICS3U
+//this program calculates factorial numbers
+import UIKit
+
+import PlaygroundSupport
+
+class ViewController : UIViewController {
+    
+    
+    // variables 
+    var instructionLabel : UILabel!
+    var userInputTextField : UITextField!
+    var calculateButton : UIButton!
+    var answerLabel : UILabel!
+    
+    override func viewDidLoad() {
+        
+        
+        let view = UIView()
+        view.backgroundColor = UIColor.white
+        self.view = view
+        
+        
+        instructionLabel = UILabel(frame: CGRect(x: 100, y: 50, width: 600, height: 50))
+        instructionLabel.text = "insert a factorial number"
+        view.addSubview(instructionLabel)
+        
+        userInputTextField = UITextField(frame: CGRect(x: 100, y: 150, width: 200, height: 50))
+        userInputTextField.borderStyle = UITextBorderStyle.roundedRect
+        userInputTextField.placeholder = "Enter Number"
+        view.addSubview(userInputTextField)
+        
+        
+        calculateButton = UIButton(frame: CGRect(x: 100, y: 230, width: 100, height: 50))
+        calculateButton.setTitle("Calculate", for: UIControlState.normal)
+        calculateButton.setTitleColor(UIColor.blue, for: UIControlState.normal)
+        calculateButton.addTarget(self, action: #selector(CheckTheNumber), for: UIControlEvents.touchUpInside)
+        view.addSubview(calculateButton)
+        
+        
+        answerLabel = UILabel(frame: CGRect(x: 100, y: 300, width: 500, height: 50))
+        answerLabel.text = nil
+        view.addSubview(answerLabel)
+        
+    }
+    
+    @objc func CheckTheNumber() {
+        // calculate height
+        
+        var userInput : Int =  Int(userInputTextField.text!)!
+        
+        if userInput &gt;= 0{
+            var answer = 1
+            while userInput &gt;= 1{
+                answer = answer * userInput
+                userInput = userInput - 1
+            }
+            answerLabel.text = "The answer is: \(answer)"
+        }else{
+            answerLabel.text = "enter a number greater than or equal to 0" 
+        }
+    }
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+}
+
+
+PlaygroundPage.current.liveView = ViewController()
+</string>
+			<key>ModifiedRange</key>
+			<string>{145, 2232}</string>
+			<key>OriginalContent</key>
+			<string>show("What is your name?")
+
+let name = ask("Name")
+
+show("Hi " + name)
+</string>
+			<key>OriginalRange</key>
+			<string>{145, 71}</string>
+		</dict>
+	</array>
+	<key>File</key>
+	<string>Chapters/Answers.playgroundchapter/Pages/Text.playgroundpage/Contents.swift</string>
+</dict>
+</plist>
